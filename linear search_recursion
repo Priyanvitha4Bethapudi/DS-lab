@@ -1,0 +1,60 @@
+include<stdio.h>
+int linear_search(int arr[],int ele,int index,int n){
+    int pos=0;
+
+    if (index >= n){
+        return 0;
+    }
+    else if(arr[index] == ele){
+        pos= index +1;
+        return pos;
+    }
+    else{
+        return linear_search(arr,ele,index+1,n);
+    }
+    return pos;
+}
+
+int main(){
+    int n, ele,pos,m=0,arr[100];
+    printf("enter the total elements in array:");
+    scanf("%d",&n);
+    printf("enter array elements\n");
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+
+    printf("enter element to search");
+    scanf("%d",&ele);
+
+    pos = linear_search(arr,ele,0,n);
+    if(pos != 0){
+        printf("element found at position %d",pos);
+    }
+    else{
+        printf("element not found");
+    }
+}
+
+
+
+OUTPUT 1
+enter the total elements in array:4
+enter array elements
+1
+2
+3
+4
+enter element to search 5
+element not found   
+
+OUTPUT 2
+enter the total elements in array:5
+enter array elements
+1
+4
+2
+7
+9
+enter element to search 9
+element found at position 5
