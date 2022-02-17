@@ -1,0 +1,123 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 5
+int front = -1,rare =-1,a[SIZE];
+void enqueue(int ele)
+{
+        a[++rare] = ele;
+        if(front == -1)
+                front =0;
+}
+int  dequeue()
+{
+        if (front == rare)
+        {
+                return a[front];
+                front = rare = -1;
+        }
+        else
+                return a[front];
+                front++;
+}
+void display()
+                {
+                for(int i =front;i<= rare; i++)
+                        printf("%d\n",a[i]);
+                                                              1,16          Top
+
+                }
+
+int main()
+{
+        int ch,ele;
+        while(1)
+        {
+                printf("\nenter your choice:");
+
+                printf("\n1-enqueue\n 2-dequeue\n 3-display\n 4-exit\n");
+                scanf("%d",&ch);
+                switch(ch){
+                        case 1: if (rare == SIZE-1)
+                                        printf("queue overflow");
+                              else
+                              {
+                                      printf("enter the ele to be inserted");
+                                      scanf("%d",&ele);
+                                      enqueue(ele);
+                              }
+                              break;
+                          case 2: if(front == -1){
+                                  printf("queue underflow");
+                              }
+                             else
+                                 printf("deleted ele is %d",dequeue());
+
+                            break;
+                     case 3: display();
+                             break;
+                     case 4: exit(0);
+
+                }
+
+        }
+}
+
+                                                              58,2-16       97%
+
+OUTPUT
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+1
+enter the ele to be inserted 10
+
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+1
+enter the ele to be inserted20
+
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+1
+enter the ele to be inserted30
+
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+1
+enter the ele to be inserted40
+
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+3
+10
+20
+30
+40
+
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+2
+deleted ele is 10
+enter your choice:
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+4
